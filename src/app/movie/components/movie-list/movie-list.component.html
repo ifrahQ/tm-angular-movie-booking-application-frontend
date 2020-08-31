@@ -19,7 +19,6 @@
     *ngFor="let movie of movies" 
     [class.topRated]="movie.rating==5"
 >
-    <!-- <div class="title" [class.released]="movie.released">{{movie.name}}</div> -->
     <div class="title" [ngStyle]="{'color': movie.released ? 'brown' : 'black'}">{{movie.name}}</div>
     <div>{{movie.duration}} mins</div>
     <div class="desc">{{movie.description}}</div>
