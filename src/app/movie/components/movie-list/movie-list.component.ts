@@ -1,4 +1,4 @@
-import { MOVIES, THEATRES } from './movie-data';
+import { MOVIES } from './movie-data';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -28,8 +28,8 @@ export class MovieListComponent implements OnInit {
     }
   }
 
-  book(movie) {
-    let newBooking = this.myBookings.find(booking => booking.movieId === movie.id);
+  book(movie, theatre) {
+    let newBooking = this.myBookings.find(booking => booking.movieId === movie.id && booking.theatreId === theatre.id);
 
     if(newBooking) {
       newBooking.qty++;
@@ -37,7 +37,9 @@ export class MovieListComponent implements OnInit {
       newBooking = {
         movieId: movie.id,
         movie: movie.name,
-        price: movie.ticket_price,
+        theatreId: theatre.id,
+        theatre: theatre.name,
+        price: theatre.ticket_price,
         qty: 1
       };
       this.myBookings.push(newBooking);

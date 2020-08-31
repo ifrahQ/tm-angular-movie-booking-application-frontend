@@ -7,7 +7,10 @@ export const MOVIES : any = [
       release_date: '28 Aug 2020',
       released: true,
       rating: 2,
-      ticket_price: 100
+      theatres: [
+          {id: 1, name: 'PVR Priya', ticket_price: 100},
+          {id: 4, name: 'PVR Anupam', ticket_price: 150},
+      ]
     },
     {
       id: 2,
@@ -17,7 +20,10 @@ export const MOVIES : any = [
       release_date: '8 Sep 2020',
       released: false,
       rating: 3,
-      ticket_price: 150
+            theatres: [
+          {id: 2, name: 'PVR Plaza', ticket_price: 300},
+          {id: 4, name: 'PVR Anupam', ticket_price: 150},
+      ]
     },
     {
       id: 3,
@@ -27,7 +33,10 @@ export const MOVIES : any = [
       release_date: '9 Nov 2020',
       released: true,
       rating: 4,
-      ticket_price: 190
+            theatres: [
+          {id: 2, name: 'PVR Plaza', ticket_price: 100},
+          {id: 3, name: 'PVR Saket', ticket_price: 150},
+      ]
     },
     {
       id: 4,
@@ -37,6 +46,10 @@ export const MOVIES : any = [
       release_date: '18 Sep 2020',
       released: true,
       rating: 5,
-      ticket_price: 130
+            theatres: [
+          {id: 1, name: 'PVR Priya', ticket_price: 100},
+          {id: 2, name: 'PVR Plaza', ticket_price: 150},
+          {id: 3, name: 'PVR Saket', ticket_price: 150},
+      ]
     }
   ];
