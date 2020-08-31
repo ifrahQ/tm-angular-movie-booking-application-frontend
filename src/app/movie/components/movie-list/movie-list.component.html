@@ -31,7 +31,7 @@
     <table>
         <tr *ngFor="let theatre of movie.theatres">
             <td>{{theatre.name}}</td>
-            <td>INR{{theatre.ticket_price}}</td>
+            <td>&#8377;{{theatre.ticket_price}}</td>
             <td><button (click)="book(movie,theatre)">book</button></td>
         </tr>
     </table>
