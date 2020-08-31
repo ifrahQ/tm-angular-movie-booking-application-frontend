@@ -23,7 +23,6 @@
     <div>{{movie.duration}} mins</div>
     <div class="desc">{{movie.description}}</div>
     <div *ngIf="movie.rating > 1">{{movie.rating}}</div>
-    <div>INR {{movie.ticket_price}}</div>
     <div>
         <button (click)="rateUp(movie)">&uarr;</button>
         <button (click)="rateDown(movie)">&darr;</button>
