@@ -1,0 +1,15 @@
+.title {
+    font-weight: bold;
+}
+
+.desc {
+    font-style: italic;
+}
+
+.released {
+    color: darkred;
+}
+
+.topRated {
+    background-color: lightpink;
+}
