@@ -1,41 +1,12 @@
-<h3 *ngIf="myBookings.length > 0">My Bookings</h3>
-<table class="table" *ngIf="myBookings.length > 0">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Movie</th>
-        <th scope="col">Theatre</th>
-        <th scope="col">Price</th>
-        <th scope="col">Qty</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let booking of myBookings; let i=index;">
-        <th scope="row">{{i+1}}</th>
-        <td>{{booking.movie}}</td>
-        <td>{{booking.theatre}}</td>
-        <td>{{booking.price}}</td>
-        <td>{{booking.qty}}</td>
-      </tr>
-    </tbody>
-  </table>
+<app-my-bookings [bookings]="myBookings"></app-my-bookings>
 <h3>Movies</h3>
 <div class="card-group">
-    <div class="card" *ngFor="let movie of movies" [class.topRated]="movie.rating === 5" style="min-width: 10rem;">
-        <div class="card-body">
-            <h5 class="card-title" [ngStyle]="{'color': movie.released ? 'brown' : 'black'}">{{movie.name}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{movie.duration}} mins</h6>
-            <p class="card-text">{{movie.description}}</p>
-            <p class="card-text">{{movie.rating}}</p>
-            <div class="btn-group">
-                <button class="btn btn-light btn-sm" (click)="rateUp(movie)">&uarr;</button>
-                <button class="btn btn-light btn-sm" (click)="rateDown(movie)">&darr;</button>
-            </div>
-        </div>
-        <div class="card-footer btn-group-vertical" style="height: 8rem;">
-            <button type="button" class="btn btn-primary btn-sm" href="#" click="book(movie,theatre)" *ngFor="let theatre of movie.theatres" (click)="book(movie,theatre)">
-                {{theatre.name}} - &#8377;{{theatre.ticket_price}}
-            </button>
-        </div>
-    </div>
+    <app-movie-item
+        *ngFor="let movie of movies"
+        [movie]="movie"
+        (rateUpBtnClick)="rateUp($event)"
+        (rateDownBtnClick)="rateDown($event)"
+        (bookBtnClick)="book($event)"
+    >
+    </app-movie-item>
 </div>

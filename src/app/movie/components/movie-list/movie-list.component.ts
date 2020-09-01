@@ -14,25 +14,26 @@ export class MovieListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    
+
   }
 
   rateUp(movie: Movie) {
-    if(movie.rating < 5) {
+    if (movie.rating < 5) {
       movie.rating++;
     }
   }
 
   rateDown(movie: Movie) {
-    if(movie.rating > 1) {
+    if (movie.rating > 1) {
       movie.rating--;
     }
   }
 
-  book(movie: Movie, theatre: Theatre) {
+  book(eventData: any) {
+    let { movie, theatre }: { movie: Movie, theatre: Theatre } = eventData;
     let newBooking: Booking = this.myBookings.find(booking => booking.movieId === movie.id && booking.theatreId === theatre.id);
 
-    if(newBooking) {
+    if (newBooking) {
       newBooking.qty++;
     } else {
       newBooking = {

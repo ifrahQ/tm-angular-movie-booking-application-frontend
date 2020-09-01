@@ -1,0 +1,21 @@
+<h3 *ngIf="bookings.length > 0">My Bookings</h3>
+<table class="table" *ngIf="bookings.length > 0">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Movie</th>
+        <th scope="col">Theatre</th>
+        <th scope="col">Price</th>
+        <th scope="col">Qty</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let booking of bookings; let i=index;">
+        <th scope="row">{{i+1}}</th>
+        <td>{{booking.movie}}</td>
+        <td>{{booking.theatre}}</td>
+        <td>{{booking.price}}</td>
+        <td>{{booking.qty}}</td>
+      </tr>
+    </tbody>
+  </table>
