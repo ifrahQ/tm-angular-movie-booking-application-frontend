@@ -1,4 +1,6 @@
-export const MOVIES: any = [
+import { Movie } from '../../../shared/models/index';
+
+export const MOVIES: Movie[] = [
   {
     id: 1,
     name: 'Sadak 2',

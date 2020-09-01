@@ -1,3 +1,4 @@
+import { Movie, Booking, Theatre } from './../../../shared/models/';
 import { MOVIES } from './movie-data';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
-  movies = MOVIES;
-  myBookings = [];
+  movies: Movie[] = MOVIES;
+  myBookings: Booking[] = [];
 
   constructor() { }
 
@@ -16,20 +17,20 @@ export class MovieListComponent implements OnInit {
     
   }
 
-  rateUp(movie) {
+  rateUp(movie: Movie) {
     if(movie.rating < 5) {
       movie.rating++;
     }
   }
 
-  rateDown(movie) {
+  rateDown(movie: Movie) {
     if(movie.rating > 1) {
       movie.rating--;
     }
   }
 
-  book(movie, theatre) {
-    let newBooking = this.myBookings.find(booking => booking.movieId === movie.id && booking.theatreId === theatre.id);
+  book(movie: Movie, theatre: Theatre) {
+    let newBooking: Booking = this.myBookings.find(booking => booking.movieId === movie.id && booking.theatreId === theatre.id);
 
     if(newBooking) {
       newBooking.qty++;
