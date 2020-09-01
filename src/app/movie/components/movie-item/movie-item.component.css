@@ -2,3 +2,7 @@
     width: 12rem;
     display: flex;
 }
+
+.topRated {
+    background-color: lightpink;
+}
