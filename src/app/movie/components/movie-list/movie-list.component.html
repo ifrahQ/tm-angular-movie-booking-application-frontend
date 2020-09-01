@@ -11,7 +11,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let booking of myBookings; let i=index;">
-        <th scope="row">{{i}}</th>
+        <th scope="row">{{i+1}}</th>
         <td>{{booking.movie}}</td>
         <td>{{booking.theatre}}</td>
         <td>{{booking.price}}</td>
