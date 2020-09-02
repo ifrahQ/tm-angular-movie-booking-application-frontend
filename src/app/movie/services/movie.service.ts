@@ -1,4 +1,4 @@
-import { Movie } from './../../shared/models/index';
+import { Movie, Theatre } from './../../shared/models/index';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -14,10 +14,7 @@ export class MovieService {
       release_date: '28 Aug 2020',
       released: true,
       rating: 2,
-      theatres: [
-        { id: 1, name: 'PVR Priya', ticket_price: 100 },
-        { id: 4, name: 'PVR Anupam', ticket_price: 150 },
-      ]
+      theatres: [1,4]
     },
     {
       id: 2,
@@ -27,10 +24,7 @@ export class MovieService {
       release_date: '8 Sep 2020',
       released: false,
       rating: 3,
-      theatres: [
-        { id: 2, name: 'PVR Plaza', ticket_price: 300 },
-        { id: 4, name: 'PVR Anupam', ticket_price: 150 },
-      ]
+      theatres: [2,4]
     },
     {
       id: 3,
@@ -40,10 +34,7 @@ export class MovieService {
       release_date: '9 Nov 2020',
       released: true,
       rating: 4,
-      theatres: [
-        { id: 2, name: 'PVR Plaza', ticket_price: 100 },
-        { id: 3, name: 'PVR Saket', ticket_price: 150 },
-      ]
+      theatres: [2,3]
     },
     {
       id: 4,
@@ -53,18 +44,29 @@ export class MovieService {
       release_date: '18 Sep 2020',
       released: true,
       rating: 5,
-      theatres: [
-        { id: 1, name: 'PVR Priya', ticket_price: 100 },
-        { id: 2, name: 'PVR Plaza', ticket_price: 150 },
-        { id: 3, name: 'PVR Saket', ticket_price: 150 },
-      ]
+      theatres: [1,2,3]
     }
+  ];
+
+  private theatres: Theatre[] = [
+    { id: 1, name: 'PVR Priya', ticket_price: 100 },
+    { id: 2, name: 'PVR Saket', ticket_price: 200 },
+    { id: 3, name: 'PVR Plaza', ticket_price: 300 },
+    { id: 4, name: 'PVR Anupam', ticket_price: 150 },
   ];
 
   constructor() { }
 
   getMovies(): Movie[] {
     return this.movies;
+  }
+
+  getTheatres(): Theatre[] {
+    return this.theatres;
+  }
+
+  addMovie(movie: Movie) {
+    this.movies.push(movie);
   }
 
   rateUp(movie: Movie) {

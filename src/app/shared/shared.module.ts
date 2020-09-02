@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -7,7 +8,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
   declarations: [
     NavBarComponent
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   exports: [
     NavBarComponent
   ]

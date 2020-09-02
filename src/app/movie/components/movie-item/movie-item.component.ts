@@ -1,3 +1,4 @@
+import { MovieService } from './../../services/movie.service';
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, OnDestroy, SimpleChanges } from '@angular/core';
 
 @Component({
@@ -11,10 +12,13 @@ export class MovieItemComponent implements OnInit, OnChanges, OnDestroy {
   @Output() rateDownBtnClick = new EventEmitter();
   @Output() bookBtnClick = new EventEmitter();
 
-  constructor() { }
+  constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
     console.log('on init');
+    const theatres = this.movieService.getTheatres();
+    this.movie.theatres = this.movie.theatres
+      .map(id => theatres.find(t => t.id == id));
   }
 
   ngOnChanges(changes: SimpleChanges) {

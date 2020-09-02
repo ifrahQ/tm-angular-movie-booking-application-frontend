@@ -6,7 +6,7 @@ export interface Movie {
   release_date?: string;
   released: boolean;
   rating: number;
-  theatres: Theatre[];
+  theatres: number[];
 }
 
 export interface Theatre {

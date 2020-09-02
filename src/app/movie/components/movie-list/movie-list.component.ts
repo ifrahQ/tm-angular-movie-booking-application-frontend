@@ -35,4 +35,8 @@ export class MovieListComponent implements OnInit {
     this.bookingService.addBooking(movie, theatre);
   }
 
+  addMovie(movie: Movie) {
+    this.movieService.addMovie(movie);
+  }
+
 }
