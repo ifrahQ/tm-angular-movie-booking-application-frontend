@@ -1,7 +1,7 @@
 import { MovieService } from './../../services/movie.service';
 import { Movie, Theatre } from './../../../shared/models/index';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormArray } from "@angular/forms";
+import { FormBuilder, FormArray, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-add-movie-form',
@@ -12,12 +12,14 @@ export class AddMovieFormComponent implements OnInit {
   @Output() formSubmit = new EventEmitter();
 
   movieAddForm = this.fb.group({
-    name: [''],
-    duration: [''],
-    description: [''],
+    name: ['', [Validators.required, Validators.minLength(4)]],
+    duration: ['', Validators.required],
+    description: ['', [Validators.required, Validators.minLength(10)]],
     released: [''],
     rating: [''],
-    theatres: this.fb.array([this.fb.control([''])]),
+    theatres: this.fb.array([
+      this.fb.control('')
+    ]),
   });
   theatreList: Theatre[];
 
@@ -35,6 +37,18 @@ export class AddMovieFormComponent implements OnInit {
 
   get theatres() {
     return this.movieAddForm.get('theatres') as FormArray;
+  }
+
+  get name() {
+    return this.movieAddForm.get('name');
+  }
+
+  get duration() {
+    return this.movieAddForm.get('duration');
+  }
+
+  get description() {
+    return this.movieAddForm.get('description');
   }
 
   addTheatre() {
