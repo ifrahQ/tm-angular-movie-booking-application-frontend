@@ -11,7 +11,7 @@
     </div>
     <div class="card-footer btn-group-vertical" style="height: 8rem;">
         <button type="button" class="btn btn-primary btn-sm" href="#" click="book(movie,theatre)" *ngFor="let theatre of movie.theatres" (click)="onBookBtnClick(movie,theatre)">
-            {{theatre.name}} - {{theatre.ticket_price | currency:'&#8377;'}}
+            {{theatre.name}} - {{theatre.ticket_price | currency:'INR':'symbol':'0.0-0'}}
         </button>
     </div>
 </div>
