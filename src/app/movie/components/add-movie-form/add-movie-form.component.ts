@@ -33,6 +33,10 @@ export class AddMovieFormComponent implements OnInit {
 
   onAddMovieFormSubmit() {
     this.formSubmit.emit(this.movieAddForm.value);
+    this.movieAddForm.reset();
+    for(let i=1; i<this.theatres.length; i++) {
+      this.theatres.removeAt(i);
+    }
   }
 
   get theatres() {
