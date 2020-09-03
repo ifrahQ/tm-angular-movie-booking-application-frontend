@@ -28,7 +28,7 @@ export class MovieService {
     },
     {
       id: 3,
-      name: 'Manikarnika 2',
+      name: 'student Of the year 2',
       duration: 100,
       description: 'Kangana acted well in this movie',
       release_date: '9 Nov 2020',
@@ -38,7 +38,7 @@ export class MovieService {
     },
     {
       id: 4,
-      name: 'Khuda Hafiz',
+      name: 'Khuda hafiz',
       duration: 170,
       description: 'This Vidyut starrer is really good.',
       release_date: '18 Sep 2020',

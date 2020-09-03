@@ -1,9 +1,9 @@
 <div class="card" [class.topRated]="movie.rating === 5" style="min-width: 10rem;">
     <div class="card-body">
-        <h5 class="card-title" [ngStyle]="{'color': movie.released ? 'brown' : 'black'}">{{movie.name}}</h5>
+        <h5 class="card-title" [ngStyle]="{'color': movie.released ? 'brown' : 'black'}">{{movie.name | uppercase}}</h5>
         <h6 class="card-subtitle mb-2 text-muted">{{movie.duration}} mins</h6>
         <p class="card-text">{{movie.description}}</p>
-        <p class="card-text" *ngIf="movie.rating !== 1">{{movie.rating}}</p>
+        <p class="card-text" *ngIf="movie.rating !== 1">{{movie.rating | rating}}</p>
         <div class="btn-group">
             <button class="btn btn-light btn-sm" (click)="onRateUpBtnClick(movie)">&uarr;</button>
             <button class="btn btn-light btn-sm" (click)="onRateDownBtnClick(movie)">&darr;</button>
@@ -11,7 +11,7 @@
     </div>
     <div class="card-footer btn-group-vertical" style="height: 8rem;">
         <button type="button" class="btn btn-primary btn-sm" href="#" click="book(movie,theatre)" *ngFor="let theatre of movie.theatres" (click)="onBookBtnClick(movie,theatre)">
-            {{theatre.name}} - &#8377;{{theatre.ticket_price}}
+            {{theatre.name}} - {{theatre.ticket_price | currency:'&#8377;'}}
         </button>
     </div>
 </div>

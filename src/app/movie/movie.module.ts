@@ -1,3 +1,4 @@
+import { SharedModule } from './../shared/shared.module';
 import { BookingModule } from './../booking/booking.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -11,9 +12,10 @@ import { AddMovieFormComponent } from './components/add-movie-form/add-movie-for
 @NgModule({
   declarations: [MovieListComponent, MovieItemComponent, AddMovieFormComponent],
   imports: [
-    CommonModule, 
-    FormsModule, 
+    CommonModule,
+    FormsModule,
     BookingModule,
+    SharedModule,
     ReactiveFormsModule
   ],
   exports: [MovieListComponent]
