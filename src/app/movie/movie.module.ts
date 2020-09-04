@@ -8,9 +8,10 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { MovieItemComponent } from './components/movie-item/movie-item.component';
 import { AddMovieFormComponent } from './components/add-movie-form/add-movie-form.component';
+import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 
 @NgModule({
-  declarations: [MovieListComponent, MovieItemComponent, AddMovieFormComponent],
+  declarations: [MovieListComponent, MovieItemComponent, AddMovieFormComponent, MovieDetailComponent],
   imports: [
     CommonModule,
     FormsModule,

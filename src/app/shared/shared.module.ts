@@ -1,4 +1,5 @@
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from "@angular/router";
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -14,7 +15,7 @@ import { UnlessDirective } from './directives/unless.directive';
     HighlightDirective,
     UnlessDirective
   ],
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   exports: [
     NavBarComponent,
     RatingPipe,

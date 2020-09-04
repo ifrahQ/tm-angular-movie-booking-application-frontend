@@ -1,7 +1,8 @@
-import { MovieService } from './../../services/movie.service';
 import { Movie, Theatre } from './../../../shared/models/index';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormArray, Validators } from "@angular/forms";
+import { MovieService } from '../../../core/services/movie.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-movie-form',
@@ -9,8 +10,6 @@ import { FormBuilder, FormArray, Validators } from "@angular/forms";
   styleUrls: ['./add-movie-form.component.css']
 })
 export class AddMovieFormComponent implements OnInit {
-  @Output() formSubmit = new EventEmitter();
-
   movieAddForm = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(4)]],
     duration: ['', Validators.required],
@@ -25,14 +24,14 @@ export class AddMovieFormComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private movieService: MovieService) { }
+    private movieService: MovieService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.theatreList = this.movieService.getTheatres();
   }
 
   onAddMovieFormSubmit() {
-    this.formSubmit.emit(this.movieAddForm.value);
     this.movieAddForm.reset();
     for(let i=1; i<this.theatres.length; i++) {
       this.theatres.removeAt(i);
@@ -57,6 +56,11 @@ export class AddMovieFormComponent implements OnInit {
 
   addTheatre() {
     this.theatres.push(this.fb.control(''));
+  }
+
+  addMovie() {
+    this.movieService.addMovie(this.movieAddForm.value);
+    this.router.navigate(['/home']);
   }
 
 }

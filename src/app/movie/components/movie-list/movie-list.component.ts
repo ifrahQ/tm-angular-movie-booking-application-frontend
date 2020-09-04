@@ -1,7 +1,7 @@
-import { BookingService } from './../../services/booking.service';
-import { MovieService } from './../../services/movie.service';
 import { Movie, Booking, Theatre } from './../../../shared/models/';
 import { Component, OnInit } from '@angular/core';
+import { MovieService } from '../../../core/services/movie.service';
+import { BookingService } from '../../../core/services/booking.service';
 
 @Component({
   selector: 'app-movie-list',
@@ -14,7 +14,7 @@ export class MovieListComponent implements OnInit {
 
   constructor(
     private movieService: MovieService,
-    private bookingService: BookingService  
+    private bookingService: BookingService
   ) { }
 
   ngOnInit(): void {
@@ -34,9 +34,4 @@ export class MovieListComponent implements OnInit {
     let { movie, theatre }: { movie: Movie, theatre: Theatre } = eventData;
     this.bookingService.addBooking(movie, theatre);
   }
-
-  addMovie(movie: Movie) {
-    this.movieService.addMovie(movie);
-  }
-
 }

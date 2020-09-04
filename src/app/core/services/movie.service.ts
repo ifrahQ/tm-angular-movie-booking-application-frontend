@@ -61,6 +61,11 @@ export class MovieService {
     return this.movies;
   }
 
+  getMovie(id): Movie {
+    console.log(this.movies, id, this.movies.find(m => m.id === id))
+    return this.movies.find(m => m.id === id);
+  }
+
   getTheatres(): Theatre[] {
     return this.theatres;
   }

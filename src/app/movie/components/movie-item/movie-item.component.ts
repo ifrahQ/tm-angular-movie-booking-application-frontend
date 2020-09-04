@@ -1,5 +1,6 @@
-import { MovieService } from './../../services/movie.service';
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, OnDestroy, SimpleChanges } from '@angular/core';
+import { Movie, Theatre } from '../../../shared/models/index';
+import { MovieService } from '../../../core/services/movie.service';
 
 @Component({
   selector: 'app-movie-item',
@@ -7,18 +8,17 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges, OnDestroy, S
   styleUrls: ['./movie-item.component.css']
 })
 export class MovieItemComponent implements OnInit, OnChanges, OnDestroy {
-  @Input() movie;
+  @Input() movie: Movie;
   @Output() rateUpBtnClick = new EventEmitter();
   @Output() rateDownBtnClick = new EventEmitter();
   @Output() bookBtnClick = new EventEmitter();
+  theatres: Theatre[];
 
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
     console.log('on init');
-    const theatres = this.movieService.getTheatres();
-    this.movie.theatres = this.movie.theatres
-      .map(id => theatres.find(t => t.id == id));
+    this.theatres = this.movieService.getTheatres();
   }
 
   ngOnChanges(changes: SimpleChanges) {
