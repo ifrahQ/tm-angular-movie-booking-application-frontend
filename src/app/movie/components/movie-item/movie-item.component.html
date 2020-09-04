@@ -1,7 +1,7 @@
 <div class="card" [class.topRated]="movie.rating === 5" style="min-width: 10rem;">
     <div class="card-body">
         <h5 class="card-title" [ngStyle]="{'color': movie.released ? 'brown' : 'black'}">{{movie.name | uppercase}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{movie.duration}} mins</h6>
+        <h6 class="card-subtitle mb-2 text-muted" appHighlight="yellow">{{movie.duration}} mins</h6>
         <p class="card-text">{{movie.description}}</p>
         <p class="card-text" *ngIf="movie.rating !== 1">{{movie.rating | rating}}</p>
         <div class="btn-group">
