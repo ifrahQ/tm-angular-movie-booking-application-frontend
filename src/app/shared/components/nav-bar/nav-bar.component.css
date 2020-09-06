@@ -1,0 +1,6 @@
+.results {
+    position: absolute;
+    border: 1px solid gray;
+    top: 47px;
+    background: white;
+}

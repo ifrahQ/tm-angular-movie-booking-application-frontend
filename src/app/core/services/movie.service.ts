@@ -1,5 +1,7 @@
 import { Movie, Theatre } from './../../shared/models/index';
 import { Injectable } from '@angular/core';
+import { of, Observable } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -84,5 +86,12 @@ export class MovieService {
     if (movie.rating > 1) {
       movie.rating--;
     }
+  }
+
+  search(term): Observable<Movie[]> {
+    const results = term 
+      ? this.movies.filter(m => m.name.indexOf(term) !== -1)
+      : [];
+    return of(results).pipe(delay(1000));
   }
 }

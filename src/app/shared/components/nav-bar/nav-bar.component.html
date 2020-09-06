@@ -21,12 +21,14 @@
           <a class="nav-link" routerLink="/contact">Contact</a>
         </li>
       </ul>
-      <span class="navbar-text">{{searchTerm}}</span>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="search-term" [(ngModel)]="searchTerm">
-        <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
-        <button class="btn btn-light my-2 my-sm-0" type="submit" (click)="searchTerm=''">Reset</button>
-      </form>
+      <div class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="search-term" [formControl]="searchTerm" />
+        <div class="results">
+          <div *ngFor="let movie of results">
+            <a (click)="loadMovieDetail(movie.id)">{{movie.name}}</a>
+          </div>
+        </div>
+      </div>
       <span class="navbar-text"> {{today | date:'dd - MM - yyyy'}} </span>
     </div>
   </nav>
