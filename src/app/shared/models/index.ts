@@ -23,3 +23,13 @@ export interface Booking {
   price: number;
   qty: number;
 }
+
+export interface User {
+    customerId: number;
+    firstName: string;
+    lastName: string;
+    username: string;
+    userTypeId: number;
+    jwtToken: string;
+    bookingIds: string[];
+}

@@ -1,3 +1,4 @@
+import { LoginComponent } from './auth/components/login/login.component';
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { MovieListComponent } from "./movie/components/movie-list/movie-list.component";
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: "my-bookings", component: MyBookingsComponent },
   { path: "add-movie", component: AddMovieFormComponent },
   { path: "movie/:id", component: MovieDetailComponent },
+  { path: "login", component: LoginComponent },
   { path: "about", component: AboutPageComponent },
   { path: "contact", component: ContactPageComponent },
   { path: '', redirectTo:'/home', pathMatch: 'full'}
